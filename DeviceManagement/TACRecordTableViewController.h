@@ -1,5 +1,5 @@
 //
-//  TACFirstViewController.h
+//  TACRecordTableViewController.h
 //  DeviceManagement
 //
 //  Created by Tom Hu on 7/10/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TACFirstViewController : UIViewController
+@interface TACRecordTableViewController : UITableViewController
 
 @end
