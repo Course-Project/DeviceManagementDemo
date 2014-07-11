@@ -408,6 +408,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DeviceManagement/DeviceManagement-Prefix.pch";
 				INFOPLIST_FILE = "DeviceManagement/DeviceManagement-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -421,6 +422,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DeviceManagement/DeviceManagement-Prefix.pch";
 				INFOPLIST_FILE = "DeviceManagement/DeviceManagement-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -485,6 +487,7 @@
 				207277D4196E7913007386DA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		207277D5196E7913007386DA /* Build configuration list for PBXNativeTarget "DeviceManagementTests" */ = {
 			isa = XCConfigurationList;
@@ -493,6 +496,7 @@
 				207277D7196E7913007386DA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
