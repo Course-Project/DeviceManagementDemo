@@ -8,17 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
+@class TACDeviceModel;
+
 @interface TACDeviceTableViewCell : UITableViewCell
 
-@property (nonatomic) NSInteger index;
-@property (nonatomic, strong) NSString *deviceName;
-@property (nonatomic, strong) NSString *deviceType;
-@property (nonatomic) BOOL deviceStatus;
+@property (weak, nonatomic) IBOutlet UILabel *deviceNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *deviceStatusLabel;
+@property (nonatomic, strong) TACDeviceModel *deviceModel;
 
-// 初始化
-- (id)initWithIndex:(NSInteger)index
-         DeviceName:(NSString *)name
-         DeviceType:(NSString *)type
-       deviceStatus:(BOOL)status;
+
+
+
+
+
+
+
 
 @end

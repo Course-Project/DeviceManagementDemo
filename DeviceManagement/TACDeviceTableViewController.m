@@ -9,10 +9,10 @@
 #import "TACDeviceTableViewController.h"
 #import "TACDeviceDetailViewController.h"
 #import "TACDeviceAddViewController.h"
+#import "TACDeviceTableViewCell.h"
+#import "TACDeviceModel.h"
 
 @interface TACDeviceTableViewController ()
-
-@property (nonatomic) NSInteger cellCount; // 记录cell的个数
 
 @end
 
@@ -30,9 +30,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    // 初始化cellCount
-    self.cellCount = 0;
     
     // UI Methods
     [self configureNavigationBar];
@@ -64,7 +61,6 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 1;
 }
@@ -77,9 +73,18 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DeviceCell" forIndexPath:indexPath];
+    TACDeviceTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DeviceCell" forIndexPath:indexPath];
     
     // Configure the cell...
+    cell.deviceModel = [[TACDataModel shardedDataModel] getDeviceAtIndex:indexPath.row];
+    
+    cell.deviceNameLabel.text = cell.deviceModel.deviceName;
+    
+    if (cell.deviceModel.isBorrowed) {
+        cell.deviceStatusLabel.text = @"Borrowed";
+    } else {
+        cell.deviceStatusLabel.text = @"Being held";
+    }
     
     return cell;
 }
@@ -90,12 +95,10 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     // 获取destinationViewController
-    TACDeviceDetailViewController *deviceDetailViewController = segue.destinationViewController;
+    TACDeviceDetailViewController *vc = segue.destinationViewController;
     
-    // 修改deviceDetailController里的数据
-    deviceDetailViewController.deviceName = @"哈哈哈哈";
-    deviceDetailViewController.deviceType = @"邵老板调罢了";
-    deviceDetailViewController.deviceStatus = YES;
+    vc.deviceModel = ((TACDeviceTableViewCell *)sender).deviceModel;
+    
 }
 
 

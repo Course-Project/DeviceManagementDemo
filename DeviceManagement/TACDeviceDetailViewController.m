@@ -7,6 +7,7 @@
 //
 
 #import "TACDeviceDetailViewController.h"
+#import "TACDeviceModel.h"
 
 @interface TACDeviceDetailViewController ()
 
@@ -34,13 +35,13 @@
 
 #pragma mark - UI Methods
 - (void)configureView {
-    self.deviceTypeLabel.text = self.deviceType;
-    self.deviceNameLabel.text = self.deviceName;
+    self.deviceTypeLabel.text = self.deviceModel.deviceType;
+    self.deviceNameLabel.text = self.deviceModel.deviceName;
     
-    if (self.deviceStatus) {
-        self.diviceStatusLabel.text = @"Being held";
-    } else {
+    if ([self.deviceModel isBorrowed]) {
         self.diviceStatusLabel.text = @"Borrowed";
+    } else {
+        self.diviceStatusLabel.text = @"Being Held";
     }
 }
 

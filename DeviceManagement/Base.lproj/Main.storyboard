@@ -239,7 +239,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DeviceCell" rowHeight="70" id="Ca7-GB-Dxc">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DeviceCell" rowHeight="70" id="Ca7-GB-Dxc" customClass="TACDeviceTableViewCell">
                                 <rect key="frame" x="0.0" y="86" width="320" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ca7-GB-Dxc" id="NFA-Ny-cpL">
@@ -262,6 +262,8 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="deviceNameLabel" destination="RRy-HW-lDC" id="g62-v2-BHw"/>
+                                    <outlet property="deviceStatusLabel" destination="gfX-mk-vs2" id="7gy-lu-rjF"/>
                                     <segue destination="CfN-71-763" kind="push" identifier="DeviceDetailSegue" id="l4H-hW-UbP"/>
                                 </connections>
                             </tableViewCell>

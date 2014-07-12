@@ -19,19 +19,6 @@
     return self;
 }
 
-- (id)initWithIndex:(NSInteger)index
-         DeviceName:(NSString *)name
-         DeviceType:(NSString *)type
-       deviceStatus:(BOOL)status {
-    self = [super init];
-    if (self) {
-        self.deviceName = name;
-        self.deviceType = type;
-        self.deviceStatus = status;
-    }
-    return self;
-}
-
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
