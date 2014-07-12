@@ -26,28 +26,50 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
-    self.navigationItem.title = @"tete";
-    self.view.backgroundColor = [UIColor yellowColor];
-
+    // UI Methods
+    [self configureView];
+    [self configureNavigationBar];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark - UI Methods
+- (void)configureView {
+    self.deviceTypeLabel.text = self.deviceType;
+    self.deviceNameLabel.text = self.deviceName;
+    
+    if (self.deviceStatus) {
+        self.diviceStatusLabel.text = @"Being held";
+    } else {
+        self.diviceStatusLabel.text = @"Borrowed";
+    }
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)configureNavigationBar {
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Borrow" style:UIBarButtonItemStyleDone target:self action:@selector(didClickBorrowButton)];
 }
-*/
+
+#pragma mark - Actions
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    [super touchesBegan:touches withEvent:event];
+    
+    [self.nameTextField resignFirstResponder];
+    [self.phoneTextField resignFirstResponder];
+}
+
+- (void)didClickBorrowButton {
+    // 获取到刚才的输入
+    
+    NSLog(@"我被点击了！！");
+    NSLog(@"Name: %@", self.nameTextField.text);
+    NSLog(@"Phone: %@", self.phoneTextField.text);
+}
+
+
+
+
+
+
+
+
 
 @end
