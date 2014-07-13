@@ -25,6 +25,7 @@ static TACDataModel *dataModel = nil;
     if (self) {
         // TODO - 从文件读入
         NSString *deviceListPath = [self deviceListPath];
+        NSLog(@"%@", deviceListPath);
         if ([[NSFileManager defaultManager] fileExistsAtPath:deviceListPath]) {
             NSMutableData *deviceData = [[NSMutableData alloc] initWithContentsOfFile:deviceListPath];
             
